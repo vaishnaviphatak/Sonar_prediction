@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonar Prediction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div class="container">
+        <header>
+            <h1 class="title">Sonar Prediction Model</h1>
+            <p class="subtitle">Enter 60 sonar features to detect whether the object is a Rock or a Mine.</p>
+        </header>
+
+        <main class="card">
+            <form id="prediction-form">
+                <div class="input-group">
+                    <label for="features">Sonar Data Features (Comma-Separated)</label>
+                    <textarea id="features" name="features" rows="6" placeholder="e.g., 0.0200, 0.0371, 0.0428, ..." required></textarea>
+                </div>
+                <button type="submit" id="submit-btn" class="btn-primary">
+                    <span class="btn-text">Predict</span>
+                    <span class="loader hidden"></span>
+                </button>
+            </form>
+
+            <div id="result-container" class="result-box hidden">
+                <h2 id="prediction-result">Result</h2>
+                <p id="prediction-message">Message goes here</p>
+            </div>
+            <div id="error-container" class="error-box hidden">
+                <p id="error-message">Error goes here</p>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Powered by Logistic Regression</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
